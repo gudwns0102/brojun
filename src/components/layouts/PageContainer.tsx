@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 import styled from "styled-components";
 import { HeaderNavBar } from "./HeaderNavBar";
+import { SideNavBar } from "./SideNavBar";
 
 interface IPageContainerProps {
   children?: any;
@@ -14,8 +15,15 @@ const Container = styled.div`
   flex-direction: column;
 `;
 
-const Main = styled.main`
+const SideBarContainer = styled.div`
+  position: relative;
+  display: flex;
   width: 100%;
+  height: 100%;
+`;
+
+const Main = styled.main`
+  flex: 1;
   height: 100%;
 `;
 
@@ -27,7 +35,10 @@ export function PageContainer({
   return (
     <Container {...props}>
       <HeaderNavBar />
-      <Main style={mainStyle}>{children}</Main>
+      <SideBarContainer>
+        <SideNavBar />
+        <Main style={mainStyle}>{children}</Main>
+      </SideBarContainer>
     </Container>
   );
 }

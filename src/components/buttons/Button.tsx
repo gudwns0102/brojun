@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { colors } from "../../styles/colors";
 import { FontType, fontTypeToWeight } from "../texts/Text";
 
-type ButtonChildType = string | number | JSX.Element;
+type ButtonChildType = null | string | number | JSX.Element;
 
 interface IButtonProps
   extends RemoveKeys<

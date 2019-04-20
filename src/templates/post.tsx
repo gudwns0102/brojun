@@ -40,7 +40,9 @@ const Subtitle = styled(Text).attrs({ fontType: "medium" })`
   color: ${colors.gray20};
 `;
 
-const Body = styled.div``;
+const Body = styled.div`
+  padding: 16px;
+`;
 
 const Content = styled(Text).attrs({ fontType: "regular" })`
   font-size: 20px;

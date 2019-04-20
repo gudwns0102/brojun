@@ -26,6 +26,11 @@ const SpaceConsumer = styled.div`
 
 const GithubButton = styled(Button)``;
 
+const GithubText = styled(Text).attrs({ fontType: "light" })`
+  font-size: 18px;
+  margin-right: 8px;
+`;
+
 const GithubLogo = styled.img.attrs({ src: githubLogo })`
   width: 36px;
   height: 36px;
@@ -43,8 +48,8 @@ export function HeaderNavBar() {
       {matches => (
         <Container>
           <SpaceConsumer />
-          {matches ? <Text>Github</Text> : null}
           <GithubButton onClick={navigateToGithub}>
+            {matches ? <GithubText>Github</GithubText> : null}
             <GithubLogo />
           </GithubButton>
         </Container>
