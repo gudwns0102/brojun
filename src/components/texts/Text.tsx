@@ -1,12 +1,10 @@
-import React, { CSSProperties } from "react";
+import React, { HTMLProps } from "react";
 import styled from "styled-components";
 
 type FontType = "thin" | "light" | "regular" | "medium" | "bold" | "black";
 
-interface ITextProps {
-  children?: string;
-  className?: string;
-  style?: CSSProperties;
+interface ITextProps
+  extends RemoveKeys<HTMLProps<HTMLSpanElement>, ["ref", "as"]> {
   type?: FontType;
 }
 
