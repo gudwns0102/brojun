@@ -21,6 +21,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-responsive": "^6.1.1",
     "styled-components": "^4.2.0"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "@storybook/addons": "^5.0.10",
     "@storybook/react": "^5.0.10",
     "@types/lodash": "^4.14.123",
+    "@types/react-responsive": "^3.0.3",
     "@types/storybook__addon-actions": "^3.4.2",
     "@types/storybook__addon-links": "^3.3.4",
     "@types/storybook__react": "^4.0.1",

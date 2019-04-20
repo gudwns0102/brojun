@@ -29,11 +29,14 @@ const Header = styled.div<{ backgroundImage?: IPost["backgroundImage"] }>`
 const Title = styled(Text).attrs({ fontType: "bold" })`
   display: block;
   font-size: 48px;
+  text-align: center;
   color: ${colors.gray20};
 `;
 
 const Subtitle = styled(Text).attrs({ fontType: "medium" })`
+  display: block;
   font-size: 32px;
+  text-align: center;
   color: ${colors.gray20};
 `;
 
