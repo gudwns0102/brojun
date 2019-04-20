@@ -31,23 +31,23 @@ storiesOf("Text", module)
   .add("font types", () => (
     <>
       <BlockText>Noto Sans KR</BlockText>
-      <BlockText type="light">서체를 확인해보세요</BlockText>
+      <BlockText fontType="light">서체를 확인해보세요</BlockText>
       <Container>
         <Pane>
-          <BlockText type="thin">100 얇은 서체</BlockText>
-          <BlockText type="light">300 가벼운 서체</BlockText>
-          <BlockText type="regular">400 일반 서체</BlockText>
-          <BlockText type="medium">500 중간 서체</BlockText>
-          <BlockText type="bold">700 굵은 서체</BlockText>
-          <BlockText type="black">900 두꺼운 서체</BlockText>
+          <BlockText fontType="thin">100 얇은 서체</BlockText>
+          <BlockText fontType="light">300 가벼운 서체</BlockText>
+          <BlockText fontType="regular">400 일반 서체</BlockText>
+          <BlockText fontType="medium">500 중간 서체</BlockText>
+          <BlockText fontType="bold">700 굵은 서체</BlockText>
+          <BlockText fontType="black">900 두꺼운 서체</BlockText>
         </Pane>
         <Pane>
-          <BlockText type="thin">100 thin</BlockText>
-          <BlockText type="light">300 light</BlockText>
-          <BlockText type="regular">400 regular</BlockText>
-          <BlockText type="medium">500 medium</BlockText>
-          <BlockText type="bold">700 bold</BlockText>
-          <BlockText type="black">900 black</BlockText>
+          <BlockText fontType="thin">100 thin</BlockText>
+          <BlockText fontType="light">300 light</BlockText>
+          <BlockText fontType="regular">400 regular</BlockText>
+          <BlockText fontType="medium">500 medium</BlockText>
+          <BlockText fontType="bold">700 bold</BlockText>
+          <BlockText fontType="black">900 black</BlockText>
         </Pane>
       </Container>
     </>

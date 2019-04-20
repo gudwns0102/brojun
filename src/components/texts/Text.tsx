@@ -1,14 +1,22 @@
 import React, { HTMLProps } from "react";
 import styled from "styled-components";
 
-type FontType = "thin" | "light" | "regular" | "medium" | "bold" | "black";
+import { colors } from "../../styles/colors";
+
+export type FontType =
+  | "thin"
+  | "light"
+  | "regular"
+  | "medium"
+  | "bold"
+  | "black";
 
 interface ITextProps
   extends RemoveKeys<HTMLProps<HTMLSpanElement>, ["ref", "as"]> {
-  type?: FontType;
+  fontType?: FontType;
 }
 
-const fontTypeToWeight = new Map<FontType, number | string>()
+export const fontTypeToWeight = new Map<FontType, number | string>()
   .set("thin", 100)
   .set("light", 300)
   .set("regular", 400)
@@ -16,11 +24,12 @@ const fontTypeToWeight = new Map<FontType, number | string>()
   .set("bold", 700)
   .set("black", 900);
 
-const StyledText = styled.span<{ type: FontType }>`
+const StyledText = styled.span<{ fontType: FontType }>`
   font-family: "Noto Sans KR", sans-serif;
-  font-weight: ${props => fontTypeToWeight.get(props.type)};
+  font-weight: ${props => fontTypeToWeight.get(props.fontType)};
+  color: ${colors.black};
 `;
 
-export function Text({ type = "regular", ...props }: ITextProps) {
-  return <StyledText {...props} type={type} />;
+export function Text({ fontType = "regular", ...props }: ITextProps) {
+  return <StyledText {...props} fontType={fontType} />;
 }
