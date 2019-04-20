@@ -1,7 +1,15 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require("path");
+const posts = require("./src/data/posts.json");
 
-// You can delete this file if you're not using it
+exports.createPages = async ({ actions }) => {
+  const { createPage } = actions;
+  for (const post of posts) {
+    createPage({
+      path: `/posts/${post.id}`,
+      component: path.resolve(`./src/templates/post.tsx`),
+      context: {
+        post
+      }
+    });
+  }
+};
