@@ -13,6 +13,7 @@ interface IButtonProps
   > {
   children?: ButtonChildType | ButtonChildType[];
   fontType?: FontType;
+  className?: string;
 }
 
 const StyledButton = styled.button<{ fontType: FontType }>`

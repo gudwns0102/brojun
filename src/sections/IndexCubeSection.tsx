@@ -4,16 +4,16 @@ import styled from "styled-components";
 import { Cube } from "../components/Cube";
 import SEO from "../components/seo";
 import { Bold } from "../components/texts/Typographies";
-import { colors } from "../styles/colors";
 
 const Container = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 100%;
-  background-color: ${colors.gray20};
+  height: 100vh;
+  scroll-snap-align: start;
 `;
 
 const Content = styled(Bold)<{ show: boolean }>`

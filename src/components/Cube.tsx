@@ -61,9 +61,12 @@ const RefreshButton = styled(Button)`
   position: absolute;
   top: -30px;
   right: -30px;
+  background-color: transparent;
 `;
+
 const RefreshIcon = styled(XEIcon).attrs({ type: "xi-refresh" })`
   font-size: 24px;
+  background-color: transparent;
 `;
 
 function mod(n: number, m: number) {

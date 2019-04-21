@@ -1,33 +1,28 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
-import { Cube } from "../components/Cube";
-import { PageContainer } from "../components/layouts/PageContainer";
-import SEO from "../components/seo";
-import { Bold } from "../components/texts/Typographies";
+import { HeaderNavBar } from "../components/layouts/HeaderNavBar";
 import IndexCubeSection from "../sections/IndexCubeSection";
+import IndexTechStackSection from "../sections/IndexTechStackSection";
 
-const Container = styled(PageContainer).attrs({
-  headerStyle: {
-    backgroundColor: "transparent",
-    boxShadow: "0px 0px 0px white"
-  },
-  sideStyle: {
-    display: "none"
-  }
-})`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
+const Container = styled.div`
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+`;
+
+const StyledHeaderNavBar = styled(HeaderNavBar)`
+  position: fixed;
+  background-color: transparent;
+  box-shadow: 0px 0px 0px transparent;
 `;
 
 const IndexPage = () => {
   return (
     <Container>
+      <StyledHeaderNavBar />
       <IndexCubeSection />
+      <IndexTechStackSection />
     </Container>
   );
 };

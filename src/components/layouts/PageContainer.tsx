@@ -26,10 +26,7 @@ const SideBarContainer = styled.div`
   height: 100%;
 `;
 
-const Main = styled.main`
-  width: 100%;
-  flex: 1;
-`;
+const Main = styled.main``;
 
 export function PageContainer({
   children,

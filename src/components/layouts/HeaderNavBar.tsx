@@ -18,7 +18,7 @@ const Container = styled.nav`
   align-items: center;
   width: 100%;
   height: 72px;
-  padding: 8px;
+  padding: 8px 16px;
   margin: 0;
   background-color: ${colors.white};
   box-sizing: border-box;
@@ -29,7 +29,9 @@ const SpaceConsumer = styled.div`
   flex: 1;
 `;
 
-const GithubButton = styled(Button)``;
+const GithubButton = styled(Button)`
+  background-color: transparent;
+`;
 
 const GithubText = styled(Text).attrs({ fontType: "light" })`
   font-size: 18px;
