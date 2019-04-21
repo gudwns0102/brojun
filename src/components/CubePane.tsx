@@ -25,6 +25,7 @@ const Pane = styled.div`
 const Title = styled(Bold)`
   font-size: 24px;
   color: ${colors.white};
+  user-select: none;
 `;
 
 function StyledPane({ children, ...props }: ICubePaneProps) {

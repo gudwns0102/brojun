@@ -10,8 +10,9 @@ export interface ICubeProps {
   edge: number;
   className?: string;
   style?: CSSProperties;
+  data: string[];
   onSpinStart?: () => any;
-  onSpinEnd?: () => any;
+  onSpinEnd?: (index: number) => any;
 }
 
 const Scene = styled.div<{ edge: number }>`
@@ -80,18 +81,19 @@ const getRightArea = createGetVisibleAreaRatioFunc(0, 90);
 const getTopArea = createGetVisibleAreaRatioFunc(90, 0);
 const getBottomArea = createGetVisibleAreaRatioFunc(-90, 0);
 
-export function Cube({ edge, ...props }: ICubeProps) {
+export function Cube({ data, edge, ...props }: ICubeProps) {
   const [translateZ] = useState(edge / 2);
   const [spinable, setSpinable] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const startSpin = useCallback(() => {
-    _.invoke(props, ["onSpinStart"]);
     setSpinable(true);
+    _.invoke(props, ["onSpinStart"]);
   }, []);
   const stopSpin = useCallback(() => {
-    _.invoke(props, ["onSpinEnd"]);
+    const { index } = calculateLargestPane();
     setSpinable(false);
+    _.invoke(props, ["onSpinEnd"], index);
   }, [rotateX, rotateY]);
   const calculateLargestPane = useCallback(() => {
     const frontArea = getFrontArea(rotateX, rotateY);
@@ -100,6 +102,22 @@ export function Cube({ edge, ...props }: ICubeProps) {
     const rightArea = getRightArea(rotateX, rotateY);
     const topArea = getTopArea(rotateX, rotateY);
     const bottomArea = getBottomArea(rotateX, rotateY);
+
+    const results = [
+      frontArea,
+      backArea,
+      leftArea,
+      rightArea,
+      topArea,
+      bottomArea
+    ];
+
+    return results.reduce(
+      ($max: any, current: any, index) => {
+        return current > $max.area ? { area: current, index } : $max;
+      },
+      { area: 0, index: -1 }
+    );
   }, [rotateX, rotateY]);
   const onMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -121,12 +139,12 @@ export function Cube({ edge, ...props }: ICubeProps) {
         onMouseLeave={stopSpin}
         onMouseMove={onMouseMove}
       >
-        <Front translateZ={translateZ}>김형준</Front>
-        <Back translateZ={translateZ}>Back</Back>
-        <Left translateZ={translateZ}>Left</Left>
-        <Right translateZ={translateZ}>Right</Right>
-        <Top translateZ={translateZ}>Blogging</Top>
-        <Bottom translateZ={translateZ}>Bottom</Bottom>
+        <Front translateZ={translateZ}>{data[0]}</Front>
+        <Back translateZ={translateZ}>{data[1]}</Back>
+        <Left translateZ={translateZ}>{data[2]}</Left>
+        <Right translateZ={translateZ}>{data[3]}</Right>
+        <Top translateZ={translateZ}>{data[4]}</Top>
+        <Bottom translateZ={translateZ}>{data[5]}</Bottom>
       </Container>
     </Scene>
   );
