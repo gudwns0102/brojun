@@ -125,9 +125,7 @@ export function Cube({ edge, ...props }: ICubeProps) {
         <Back translateZ={translateZ}>Back</Back>
         <Left translateZ={translateZ}>Left</Left>
         <Right translateZ={translateZ}>Right</Right>
-        <Top onClick={() => navigate("/posts")} translateZ={translateZ}>
-          Blogging
-        </Top>
+        <Top translateZ={translateZ}>Blogging</Top>
         <Bottom translateZ={translateZ}>Bottom</Bottom>
       </Container>
     </Scene>
