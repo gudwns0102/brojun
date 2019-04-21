@@ -1,17 +1,29 @@
-import React from "react";
+import React, { useCallback } from "react";
 import styled from "styled-components";
 
-import { Button } from "../components/buttons/Button";
+import { navigate } from "gatsby";
 import { PageContainer } from "../components/layouts/PageContainer";
-import { Text } from "../components/texts/Text";
+import { PostSummaryList } from "../components/lists/PostSummaryList";
+import posts from "../data/posts.json";
 
-const Container = styled(PageContainer)``;
+const Container = styled(PageContainer).attrs({
+  mainStyle: {
+    padding: 16
+  }
+})``;
+
+const StyledPostSummaryList = styled(PostSummaryList).attrs({
+  cardStyle: {}
+})``;
 
 export default () => {
+  const onCardClick = useCallback((postId: number) => {
+    navigate(`/posts/${postId}`);
+  }, []);
+
   return (
     <Container>
-      <Text>posts</Text>
-      <Button />
+      <StyledPostSummaryList posts={posts} onCardClick={onCardClick} />
     </Container>
   );
 };

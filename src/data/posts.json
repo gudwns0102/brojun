@@ -3,6 +3,19 @@
     "id": 0,
     "backgroundImage": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaetXJ4Cqp4dl3ORzKnEItJZH2Wc4XZlp4x8Std_x3VNTC5y6I",
     "title": "Nightwatch + Typescript",
+    "subtitle": "Boost your nightwatch using typescript 🚀",
+    "content": "test"
+  },
+  {
+    "id": 1,
+    "backgroundImage": "https://images.pexels.com/photos/1250260/pexels-photo-1250260.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "title": "Use Storybook for visual TDD",
+    "content": "test"
+  },
+  {
+    "id": 2,
+    "backgroundImage": "https://images.pexels.com/photos/1250260/pexels-photo-1250260.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    "title": "Use Storybook for visual TDD",
     "content": "test"
   }
 ]

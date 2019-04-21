@@ -1,8 +1,13 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import MediaQuery from "react-responsive";
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
 import { MediaQuerySize } from "../../utils/mediaQuerySizes";
+
+interface IProps {
+  className?: string;
+  style?: CSSProperties;
+}
 
 const Container = styled.nav`
   display: block;
@@ -11,10 +16,10 @@ const Container = styled.nav`
   background-color: ${colors.gray900};
 `;
 
-export function SideNavBar() {
+export function SideNavBar(props: IProps) {
   return (
     <MediaQuery minWidth={MediaQuerySize.medium}>
-      <Container />
+      <Container {...props} />
     </MediaQuery>
   );
 }

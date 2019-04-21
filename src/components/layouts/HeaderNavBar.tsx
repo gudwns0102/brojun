@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { CSSProperties, useCallback } from "react";
 import styled from "styled-components";
 
 import MediaQuery from "react-responsive";
@@ -7,6 +7,11 @@ import { colors } from "../../styles/colors";
 import { MediaQuerySize } from "../../utils/mediaQuerySizes";
 import { Button } from "../buttons/Button";
 import { Text } from "../texts/Text";
+
+interface IProps {
+  className?: string;
+  style?: CSSProperties;
+}
 
 const Container = styled.nav`
   display: flex;
@@ -36,7 +41,7 @@ const GithubLogo = styled.img.attrs({ src: githubLogo })`
   height: 36px;
 `;
 
-export function HeaderNavBar() {
+export function HeaderNavBar(props: IProps) {
   const navigateToGithub = useCallback(() => {
     if (typeof window !== "undefined") {
       window.location.href = "https://github.com/gudwns0102/brojun";
@@ -46,7 +51,7 @@ export function HeaderNavBar() {
   return (
     <MediaQuery minWidth={MediaQuerySize.small}>
       {matches => (
-        <Container>
+        <Container {...props}>
           <SpaceConsumer />
           <GithubButton onClick={navigateToGithub}>
             {matches ? <GithubText>Github</GithubText> : null}

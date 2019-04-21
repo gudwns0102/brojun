@@ -1,29 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { BackgroundContainer } from "../components/BackgroundContainer";
 import { PageContainer } from "../components/layouts/PageContainer";
 import { Text } from "../components/texts/Text";
 import { colors } from "../styles/colors";
 
 const Container = styled(PageContainer)``;
 
-const Header = styled.div<{ backgroundImage?: IPost["backgroundImage"] }>`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+const Header = styled(BackgroundContainer)`
   height: 360px;
-
-  &::before {
-    background-image: url("${props => props.backgroundImage}");
-    background-size: cover;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    opacity: 0.8;
-  }
 `;
 
 const Title = styled(Text).attrs({ fontType: "bold" })`
