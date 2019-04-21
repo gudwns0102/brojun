@@ -1,8 +1,9 @@
-import { navigate } from "@reach/router";
 import _ from "lodash";
 import React, { CSSProperties, useCallback, useState } from "react";
 import styled from "styled-components";
+import { Button } from "./buttons/Button";
 import { CubePane } from "./CubePane";
+import XEIcon from "./XEIcon";
 
 type CubePaneType = "front" | "back" | "left" | "right" | "top" | "bottom";
 
@@ -56,6 +57,15 @@ const Bottom = styled(CubePane)<{ translateZ: number }>`
   transform: rotateX(-90deg) translateZ(${props => props.translateZ}px);
 `;
 
+const RefreshButton = styled(Button)`
+  position: absolute;
+  top: -30px;
+  right: -30px;
+`;
+const RefreshIcon = styled(XEIcon).attrs({ type: "xi-refresh" })`
+  font-size: 24px;
+`;
+
 function mod(n: number, m: number) {
   return ((n % m) + m) % m;
 }
@@ -86,39 +96,45 @@ export function Cube({ data, edge, ...props }: ICubeProps) {
   const [spinable, setSpinable] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+
   const startSpin = useCallback(() => {
     setSpinable(true);
     _.invoke(props, ["onSpinStart"]);
   }, []);
+
   const stopSpin = useCallback(() => {
-    const { index } = calculateLargestPane();
+    const { index } = calculateLargestPane(rotateX, rotateY);
     setSpinable(false);
     _.invoke(props, ["onSpinEnd"], index);
   }, [rotateX, rotateY]);
-  const calculateLargestPane = useCallback(() => {
-    const frontArea = getFrontArea(rotateX, rotateY);
-    const backArea = getBackArea(rotateX, rotateY);
-    const leftArea = getLeftArea(rotateX, rotateY);
-    const rightArea = getRightArea(rotateX, rotateY);
-    const topArea = getTopArea(rotateX, rotateY);
-    const bottomArea = getBottomArea(rotateX, rotateY);
 
-    const results = [
-      frontArea,
-      backArea,
-      leftArea,
-      rightArea,
-      topArea,
-      bottomArea
-    ];
+  const calculateLargestPane = useCallback(
+    ($rotateX: number, $rotateY: number) => {
+      const frontArea = getFrontArea($rotateX, $rotateY);
+      const backArea = getBackArea($rotateX, $rotateY);
+      const leftArea = getLeftArea($rotateX, $rotateY);
+      const rightArea = getRightArea($rotateX, $rotateY);
+      const topArea = getTopArea($rotateX, $rotateY);
+      const bottomArea = getBottomArea($rotateX, $rotateY);
 
-    return results.reduce(
-      ($max: any, current: any, index) => {
-        return current > $max.area ? { area: current, index } : $max;
-      },
-      { area: 0, index: -1 }
-    );
-  }, [rotateX, rotateY]);
+      const results = [
+        frontArea,
+        backArea,
+        leftArea,
+        rightArea,
+        topArea,
+        bottomArea
+      ];
+
+      return results.reduce(
+        ($max: any, current: any, index) => {
+          return current > $max.area ? { area: current, index } : $max;
+        },
+        { area: 0, index: -1 }
+      );
+    },
+    []
+  );
   const onMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       if (spinable) {
@@ -129,8 +145,20 @@ export function Cube({ data, edge, ...props }: ICubeProps) {
     [rotateX, rotateY, spinable]
   );
 
+  const onRefresh = useCallback(() => {
+    const { index } = calculateLargestPane(0, 0);
+    setRotateX(0);
+    setRotateY(0);
+    _.invoke(props, ["onSpinEnd"], index);
+  }, []);
+
   return (
     <Scene {...props} edge={edge}>
+      {rotateX || rotateY ? (
+        <RefreshButton onClick={onRefresh}>
+          <RefreshIcon />
+        </RefreshButton>
+      ) : null}
       <Container
         rotateX={rotateX}
         rotateY={rotateY}

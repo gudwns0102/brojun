@@ -2,7 +2,6 @@ import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 
 import { Cube } from "../components/Cube";
-import { PageContainer } from "../components/layouts/PageContainer";
 import SEO from "../components/seo";
 import { Bold } from "../components/texts/Typographies";
 import { colors } from "../styles/colors";
@@ -31,7 +30,7 @@ const StyledCube = styled(Cube).attrs({ edge: 200 })``;
 const data = ["front", "back", "left", "right", "top", "bottom"];
 
 const IndexCubeSection = () => {
-  const [title, setTitle] = useState("김형준");
+  const [title, setTitle] = useState(data[0]);
   const [showTitle, setShowTitle] = useState(true);
   const onSpinStart = useCallback(() => {
     setShowTitle(false);

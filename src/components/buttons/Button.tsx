@@ -26,11 +26,8 @@ const StyledButton = styled.button<{ fontType: FontType }>`
 
   border: 0px solid;
   border-radius: 4px;
-  padding: 12px;
   box-sizing: border-box;
   outline: none;
-  line-height: 1.5;
-  letter-spacing: -0.5;
   background-color: ${colors.white};
   transition-duration: 0.4s;
   transition-property: transform, box-shadow, background-color;
