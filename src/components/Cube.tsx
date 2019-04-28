@@ -69,10 +69,6 @@ const RefreshIcon = styled(XEIcon).attrs({ type: "xi-refresh" })`
   background-color: transparent;
 `;
 
-function mod(n: number, m: number) {
-  return ((n % m) + m) % m;
-}
-
 function createGetVisibleAreaRatioFunc(
   initialRotateX: number,
   initialRotateY: number
@@ -99,6 +95,8 @@ export function Cube({ data, edge, ...props }: ICubeProps) {
   const [spinable, setSpinable] = useState(false);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+  const [touchX, setTouchX] = useState(0);
+  const [touchY, setTouchY] = useState(0);
 
   const startSpin = useCallback(() => {
     setSpinable(true);
@@ -110,6 +108,12 @@ export function Cube({ data, edge, ...props }: ICubeProps) {
     setSpinable(false);
     _.invoke(props, ["onSpinEnd"], index);
   }, [rotateX, rotateY]);
+
+  const onTouchStart = useCallback((e: React.TouchEvent<HTMLDivElement>) => {
+    startSpin();
+    setTouchX(e.touches[0].pageX);
+    setTouchY(e.touches[0].pageY);
+  }, []);
 
   const calculateLargestPane = useCallback(
     ($rotateX: number, $rotateY: number) => {
@@ -138,11 +142,27 @@ export function Cube({ data, edge, ...props }: ICubeProps) {
     },
     []
   );
+
   const onMouseMove = useCallback(
     (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
       if (spinable) {
         setRotateX(rotateX - e.movementY / 2);
         setRotateY(rotateY - e.movementX / 2);
+      }
+    },
+    [rotateX, rotateY, spinable]
+  );
+
+  const onTouchMove = useCallback(
+    (e: React.TouchEvent<HTMLDivElement>) => {
+      const touch = e.touches[0];
+      e.preventDefault();
+      e.stopPropagation();
+      if (spinable) {
+        setRotateX(rotateX - (touchY - touch.pageY) / 2);
+        setRotateY(rotateY - (touchX - touch.pageX) / 2);
+        setTouchX(touch.pageX);
+        setTouchY(touch.pageY);
       }
     },
     [rotateX, rotateY, spinable]
@@ -169,6 +189,10 @@ export function Cube({ data, edge, ...props }: ICubeProps) {
         onMouseUp={stopSpin}
         onMouseLeave={stopSpin}
         onMouseMove={onMouseMove}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={stopSpin}
+        onTouchCancel={stopSpin}
       >
         <Front translateZ={translateZ}>{data[0]}</Front>
         <Back translateZ={translateZ}>{data[1]}</Back>

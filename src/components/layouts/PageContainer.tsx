@@ -39,7 +39,6 @@ export function PageContainer({
 }: IPageContainerProps) {
   return (
     <Container {...props} style={containerStyle}>
-      <HeaderNavBar style={headerStyle} />
       <SideBarContainer>
         <SideNavBar style={sideStyle} />
         <Main style={style} className={className}>

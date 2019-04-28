@@ -32,6 +32,7 @@ const StyledButton = styled.button<{ fontType: FontType }>`
   background-color: ${colors.white};
   transition-duration: 0.4s;
   transition-property: transform, box-shadow, background-color;
+  outline: none;
 
   &:hover {
     cursor: pointer;
