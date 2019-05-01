@@ -1,12 +1,16 @@
 import React from "react";
-import { PageContainer, SEO } from "../components";
+import styled from "styled-components";
+
+import { SEO } from "../components";
+
+const Container = styled.div``;
 
 const NotFoundPage = () => (
-  <PageContainer>
+  <Container>
     <SEO title="404: Not found" />
     <h1>NOT FOUND</h1>
     <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </PageContainer>
+  </Container>
 );
 
 export default NotFoundPage;

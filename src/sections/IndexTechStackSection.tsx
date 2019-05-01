@@ -4,7 +4,6 @@ import styled from "styled-components";
 import MediaQuery from "react-responsive";
 import {
   BackgroundContainer,
-  Bold,
   CircularPicker,
   DynamicText
 } from "../components";
@@ -55,7 +54,6 @@ const TechImage = styled.img`
 const Picker = styled(CircularPicker)<{ width: number | string }>`
   position: absolute;
   bottom: 10%;
-  width: ${props => props.width};
 `;
 
 const PickerItem = styled.img.attrs({ draggable: false })`
@@ -75,7 +73,7 @@ export const IndexTechStackSection = () => {
           <TechImage src={currentTechData.image} />
           <DynamicText>{currentTechData.name}</DynamicText>
           <Picker
-            width={matches ? "800px" : "100%"}
+            width={matches ? "800px" : "400px"}
             translateZ={matches ? 300 : 100}
             itemWidth={matches ? 100 : 50}
             itemHeight={matches ? 100 : 50}

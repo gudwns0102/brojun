@@ -1,14 +1,18 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import styled from "styled-components";
 
 import { HeaderNavBar, SEO } from "../components";
 import {
   IndexCubeSection,
+  IndexHeaderSection,
   IndexHireMeSection,
   IndexTechStackSection
 } from "../sections";
+import { colors, hexToRgba } from "../styles/colors";
 
 const Container = styled.div`
+  position: relative;
+  width: 100%;
   height: 100vh;
   scroll-snap-type: y mandatory;
   overflow-y: scroll;
@@ -16,7 +20,9 @@ const Container = styled.div`
 
 const StyledHeaderNavBar = styled(HeaderNavBar)`
   position: fixed;
+  min-width: auto;
   box-shadow: 0px 0px 0px transparent;
+  background-color: ${hexToRgba(colors.white, 0.6)};
 `;
 
 const IndexPage = () => {
@@ -30,8 +36,9 @@ const IndexPage = () => {
 
   return (
     <Container ref={containerRef} onScroll={onContainerScroll}>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <StyledHeaderNavBar scrollPercent={progress} />
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+      <IndexHeaderSection />
       <IndexCubeSection />
       <IndexTechStackSection />
       <IndexHireMeSection />

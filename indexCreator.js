@@ -36,7 +36,9 @@ const createIndexFileForGivenPath = filepath => {
     .map(filename => createOneImportLine(filename))
     .join("\n");
 
+  console.log(content);
   fs.writeFileSync(path.resolve(filepath, "index.ts"), content);
 };
 
+traverseFilepathRecursively("./src/components");
 traverseFilepathRecursively("./src/sections");

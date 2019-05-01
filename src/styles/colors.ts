@@ -39,3 +39,13 @@ export const colors = {
   orange550: "#ff7d00",
   orange700: "#ff6d1f"
 };
+
+export const hexToRgba = (hex: string, opacity: number) => {
+  const trimHex = hex.replace("#", "");
+  const bigint = parseInt(trimHex, 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+
+  return `rgba(${[r, g, b, opacity].join()})`;
+};

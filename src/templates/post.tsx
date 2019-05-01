@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { BackgroundContainer } from "../components/BackgroundContainer";
-import { PageContainer } from "../components/layouts/PageContainer";
-import { Text } from "../components/texts/Text";
+
+import { BackgroundContainer, Text } from "../components";
 import { colors } from "../styles/colors";
 
-const Container = styled(PageContainer)``;
+const Container = styled.div``;
 
 const Header = styled(BackgroundContainer)`
   height: 360px;

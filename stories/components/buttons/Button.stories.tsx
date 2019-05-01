@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/react";
 import React from "react";
 
-import { Button } from "../../../src/components/buttons/Button";
+import { Button } from "../../../src/components/";
 import { CenterDecorator } from "../../decorators/CenterDecorator";
 
 storiesOf("Button", module)

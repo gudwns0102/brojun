@@ -1,9 +1,7 @@
 import React, { CSSProperties } from "react";
 import styled from "styled-components";
 
-import { SideNavBar } from "./SideNavBar";
-
-interface IPageContainerProps {
+interface ILayoutProps {
   children?: any;
   className?: string;
   style?: CSSProperties;
@@ -19,16 +17,9 @@ const Container = styled.div`
   height: 100vh;
 `;
 
-const SideBarContainer = styled.div`
-  position: relative;
-  display: flex;
-  width: 100%;
-  height: 100%;
-`;
-
 const Main = styled.main``;
 
-export function PageContainer({
+export function Layout({
   children,
   className,
   style,
@@ -36,15 +27,12 @@ export function PageContainer({
   headerStyle,
   sideStyle,
   ...props
-}: IPageContainerProps) {
+}: ILayoutProps) {
   return (
     <Container {...props} style={containerStyle}>
-      <SideBarContainer>
-        <SideNavBar style={sideStyle} />
-        <Main style={style} className={className}>
-          {children}
-        </Main>
-      </SideBarContainer>
+      <Main style={style} className={className}>
+        {children}
+      </Main>
     </Container>
   );
 }

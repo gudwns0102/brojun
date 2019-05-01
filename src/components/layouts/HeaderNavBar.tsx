@@ -100,18 +100,18 @@ export function HeaderNavBar({ scrollPercent, ...props }: IProps) {
             height: matches ? 72 : 54
           }}
         >
-          <HomeButton>
+          {/* <HomeButton>
             <Avatar />
             <Title onClick={navigateToHome}>Brojun</Title>
-          </HomeButton>
+          </HomeButton> */}
           <SpaceConsumer />
           <GithubButton onClick={navigateToGithub}>
             {matches ? <GithubText>Github</GithubText> : null}
             <GithubLogo />
           </GithubButton>
-          <ProgressContainer>
+          {/* <ProgressContainer>
             <ProgressBar percent={scrollPercent} />
-          </ProgressContainer>
+          </ProgressContainer> */}
         </Container>
       )}
     </MediaQuery>

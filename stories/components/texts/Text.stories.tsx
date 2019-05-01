@@ -2,7 +2,7 @@ import { storiesOf } from "@storybook/react";
 import React from "react";
 import styled from "styled-components";
 
-import { Text } from "../../../src/components/texts/Text";
+import { Text } from "../../../src/components";
 import { CenterDecorator } from "../../decorators/CenterDecorator";
 
 const Container = styled.div`

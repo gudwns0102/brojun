@@ -128,4 +128,4 @@ function Picker({
   );
 }
 
-export const CircularPicker = React.memo(Picker);
+export const CircularPicker = Picker;

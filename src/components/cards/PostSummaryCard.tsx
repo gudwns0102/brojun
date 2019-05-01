@@ -2,7 +2,7 @@ import React, { CSSProperties } from "react";
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
 
-import { BackgroundContainer } from "../BackgroundContainer";
+import { BackgroundContainer } from "../layouts";
 import { Medium } from "../texts/Typographies";
 
 interface IProps {
