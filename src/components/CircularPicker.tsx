@@ -1,9 +1,10 @@
 import _ from "lodash";
 import React, { useCallback, useEffect, useState } from "react";
 import styled from "styled-components";
+
 import { colors } from "../styles/colors";
 import { Button } from "./buttons/Button";
-import XEIcon from "./XEIcon";
+import { XEIcon } from "./XEIcon";
 
 type IPickerItemProps = JSX.Element;
 

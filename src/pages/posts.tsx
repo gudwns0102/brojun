@@ -1,9 +1,8 @@
+import { navigate } from "gatsby";
 import React, { useCallback } from "react";
 import styled from "styled-components";
 
-import { navigate } from "gatsby";
-import { PageContainer } from "../components/layouts/PageContainer";
-import { PostSummaryList } from "../components/lists/PostSummaryList";
+import { PageContainer, PostSummaryList } from "../components/";
 import posts from "../data/posts.json";
 
 const Container = styled(PageContainer).attrs({

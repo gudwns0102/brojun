@@ -1,7 +1,5 @@
 import React from "react";
-
-import { PageContainer } from "../components/layouts/PageContainer";
-import SEO from "../components/seo";
+import { PageContainer, SEO } from "../components";
 
 const NotFoundPage = () => (
   <PageContainer>

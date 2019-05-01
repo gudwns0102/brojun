@@ -1,6 +1,6 @@
 import React, { CSSProperties } from "react";
 import styled from "styled-components";
-import { HeaderNavBar } from "./HeaderNavBar";
+
 import { SideNavBar } from "./SideNavBar";
 
 interface IPageContainerProps {

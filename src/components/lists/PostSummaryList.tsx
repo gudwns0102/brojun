@@ -2,6 +2,7 @@ import _ from "lodash";
 import React, { CSSProperties } from "react";
 import MediaQuery from "react-responsive";
 import styled from "styled-components";
+
 import { MediaQuerySize } from "../../utils/mediaQuerySizes";
 import { PostSummaryCard } from "../cards/PostSummaryCard";
 

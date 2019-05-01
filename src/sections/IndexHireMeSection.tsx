@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BackgroundContainer } from "../components/BackgroundContainer";
-import { Button } from "../components/buttons/Button";
+import { BackgroundContainer, Button } from "../components/";
 import { colors } from "../styles/colors";
 
 const Container = styled(BackgroundContainer)`

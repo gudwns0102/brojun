@@ -1,11 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
-import { TopMoveButton } from "../components/buttons/TopMoveButton";
-import { HeaderNavBar } from "../components/layouts/HeaderNavBar";
-import IndexCubeSection from "../sections/IndexCubeSection";
-import { IndexHireMeSection } from "../sections/IndexHireMeSection";
-import IndexTechStackSection from "../sections/IndexTechStackSection";
+import { HeaderNavBar, SEO } from "../components";
+import {
+  IndexCubeSection,
+  IndexHireMeSection,
+  IndexTechStackSection
+} from "../sections";
 
 const Container = styled.div`
   height: 100vh;
@@ -29,6 +30,7 @@ const IndexPage = () => {
 
   return (
     <Container ref={containerRef} onScroll={onContainerScroll}>
+      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <StyledHeaderNavBar scrollPercent={progress} />
       <IndexCubeSection />
       <IndexTechStackSection />

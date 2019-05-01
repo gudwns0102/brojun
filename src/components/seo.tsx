@@ -24,7 +24,7 @@ interface ISEOProps {
   keywords?: string[];
 }
 
-function SEO({
+export function SEO({
   title,
   description = "",
   lang = "en",
@@ -56,5 +56,3 @@ function SEO({
     />
   );
 }
-
-export default SEO;

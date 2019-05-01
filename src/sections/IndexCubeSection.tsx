@@ -1,9 +1,7 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 
-import { Cube } from "../components/Cube";
-import SEO from "../components/seo";
-import { Bold } from "../components/texts/Typographies";
+import { Bold, Cube, SEO } from "../components";
 
 const Container = styled.div`
   position: relative;
@@ -29,7 +27,7 @@ const StyledCube = styled(Cube).attrs({ edge: 200 })``;
 
 const data = ["front", "back", "left", "right", "top", "bottom"];
 
-const IndexCubeSection = () => {
+export const IndexCubeSection = () => {
   const [title, setTitle] = useState(data[0]);
   const [showTitle, setShowTitle] = useState(true);
   const onSpinStart = useCallback(() => {
@@ -39,13 +37,11 @@ const IndexCubeSection = () => {
     setShowTitle(true);
     setTitle(data[index]);
   }, []);
+
   return (
     <Container>
-      <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <Content show={showTitle}>{title}</Content>
       <StyledCube data={data} onSpinStart={onSpinStart} onSpinEnd={onSpinEnd} />
     </Container>
   );
 };
-
-export default IndexCubeSection;

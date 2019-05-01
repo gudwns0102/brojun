@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 import styled from "styled-components";
 import { colors } from "../../styles/colors";
+
 import { BackgroundContainer } from "../BackgroundContainer";
 import { Medium } from "../texts/Typographies";
 

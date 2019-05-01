@@ -1,6 +1,7 @@
 import React, { CSSProperties } from "react";
 import MediaQuery from "react-responsive";
 import styled from "styled-components";
+
 import { colors } from "../../styles/colors";
 import { MediaQuerySize } from "../../utils/mediaQuerySizes";
 

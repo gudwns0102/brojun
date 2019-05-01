@@ -1,9 +1,10 @@
 import _ from "lodash";
 import React, { CSSProperties, useCallback, useState } from "react";
 import styled from "styled-components";
+
 import { Button } from "./buttons/Button";
 import { CubePane } from "./CubePane";
-import XEIcon from "./XEIcon";
+import { XEIcon } from "./XEIcon";
 
 type CubePaneType = "front" | "back" | "left" | "right" | "top" | "bottom";
 

@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import { colors } from "../../styles/colors";
 import { Regular } from "../texts/Typographies";
 import { Button } from "./Button";

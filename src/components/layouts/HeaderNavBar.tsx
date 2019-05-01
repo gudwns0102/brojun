@@ -1,8 +1,8 @@
+import { navigate } from "gatsby";
 import React, { CSSProperties, useCallback } from "react";
+import MediaQuery from "react-responsive";
 import styled from "styled-components";
 
-import { navigate } from "gatsby";
-import MediaQuery from "react-responsive";
 import avatar from "../../images/avatar.png";
 import githubLogo from "../../images/github-logo.svg";
 import { colors } from "../../styles/colors";

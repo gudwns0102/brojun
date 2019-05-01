@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 import MediaQuery from "react-responsive";
-import { BackgroundContainer } from "../components/BackgroundContainer";
-import { CircularPicker } from "../components/CircularPicker";
-import { DynamicText } from "../components/texts/DynamicText";
-import { Bold } from "../components/texts/Typographies";
+import {
+  BackgroundContainer,
+  Bold,
+  CircularPicker,
+  DynamicText
+} from "../components";
 import js from "../images/javascript-logo.png";
 import jest from "../images/jest-logo.png";
 import nightwatch from "../images/nightwatch-logo.png";
@@ -50,10 +52,6 @@ const TechImage = styled.img`
   width: 30%;
 `;
 
-const TechName = styled(Bold)`
-  font-size: 48px;
-`;
-
 const Picker = styled(CircularPicker)<{ width: number | string }>`
   position: absolute;
   bottom: 10%;
@@ -65,10 +63,11 @@ const PickerItem = styled.img.attrs({ draggable: false })`
   height: 100%;
 `;
 
-const IndexTechStackSection = () => {
+export const IndexTechStackSection = () => {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
   const currentTechData = techData[currentItemIndex];
+
   return (
     <MediaQuery minWidth={MediaQuerySize.small}>
       {matches => (
@@ -91,5 +90,3 @@ const IndexTechStackSection = () => {
     </MediaQuery>
   );
 };
-
-export default IndexTechStackSection;
